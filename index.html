@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            background-color: brown;
+            padding: 10px;
+            border-radius: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            cursor: pointer;
+           
+        }
+    </style>
+   
+</head>
+<body>
+    <video id="video" autoplay width="800" height="600"></video>  
+   
+    <a download>Snap</a>
+
+    <script>
+        let video = document.getElementById("video");
+        if(navigator.mediaDevices.getUserMedia){
+            navigator.mediaDevices.getUserMedia({video:true}).then(function(s){
+                video.srcObject=s;
+            })
+            .catch (function(err){
+                console.log(err);
+            });
+
+        }else{
+            console.log("no");
+        }
+       
+       
+       
+    </script>
+</body>
+</html>
